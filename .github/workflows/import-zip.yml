@@ -19,6 +19,7 @@ jobs:
           mkdir -p /tmp/gbremake
           unzip -q "$archive" -d /tmp/gbremake
           cp -a /tmp/gbremake/GBRemake-Prototype-0.1/. .
+          rm -f .github/workflows/deploy.yml
           rm -f "$archive"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
