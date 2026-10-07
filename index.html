@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1112" />
+    <meta name="description" content="GBRemake — маленькая 3D-песочница на Three.js." />
+    <title>GBRemake — Prototype 0.1</title>
+  </head>
+  <body>
+    <div id="app" class="app-shell">
+      <canvas id="world" aria-label="3D-песочница"></canvas>
+      <div class="world-grain" aria-hidden="true"></div>
+      <div class="world-vignette" aria-hidden="true"></div>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+      <header class="topbar">
+        <div class="brand-lockup">
+          <div class="brand-mark"><span>GB</span><i></i></div>
+          <div class="brand-copy"><strong>GBRemake</strong><small data-i18n="build_tag">SANDBOX / BUILD 0.1</small></div>
+        </div>
+        <div class="top-status"><span class="status-dot"></span><span data-i18n="offline">LOCAL SESSION</span><span class="status-divider"></span><span id="top-map-label" data-i18n="menu_space">MENU SPACE</span></div>
+      </header>
+
+      <section id="main-screen" class="main-screen screen-layer">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="hero_eyebrow">PHYSICS SANDBOX / PROTOTYPE</span></div>
+          <h1><span data-i18n="hero_title_a">MAKE YOUR</span><br /><em data-i18n="hero_title_b">OWN RULES.</em></h1>
+          <p class="hero-description" data-i18n="hero_copy">A small experimental playground. Spawn props, meet simple AI characters and turn a quiet test map into your own physics lab.</p>
+          <div class="menu-actions">
+            <button class="action-button action-primary" id="play-button"><span class="action-icon">▶</span><span data-i18n="play">Играть</span><span class="action-arrow">↗</span></button>
+            <button class="action-button" id="settings-button"><span class="action-icon settings-symbol">⚙</span><span data-i18n="settings">Настройки</span><span class="action-arrow">↗</span></button>
+            <button class="action-button action-quiet" id="exit-button"><span class="action-icon exit-symbol">×</span><span data-i18n="exit">Выход</span><span class="action-arrow">↗</span></button>
+          </div>
+          <div class="menu-footnote"><span class="tiny-square"></span><span data-i18n="menu_hint">HOVER THE FIGURE · TRY THE SECRET</span></div>
+        </div>
+        <div class="hero-right-label"><span data-i18n="hero_right_top">PHYSICS</span><b>01</b><i></i><span data-i18n="hero_right_bottom">PLAYGROUND</span></div>
+        <div class="menu-bottomline"><span>GBR / 001</span><span data-i18n="made_for">A SMALL WORLD TO MESS AROUND IN</span><span id="menu-clock">00:00</span></div>
+        <div class="prototype-stamp">Prototype 0.1</div>
+      </section>
+
+      <section id="map-screen" class="screen-layer modal-screen" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="map-dialog panel-shell">
+          <div class="panel-kicker"><span class="eyebrow-line"></span><span data-i18n="map_kicker">WORLD SELECT</span></div>
+          <div class="dialog-heading"><div><h2 data-i18n="select_map">Выбор карты</h2><p data-i18n="map_subtitle">Выбери площадку для теста.</p></div><button class="icon-button close-map" aria-label="Back">×</button></div>
+          <div class="map-cards">
+            <button class="map-card selected" data-map="plains">
+              <div class="map-preview preview-plains"><div class="preview-sun"></div><div class="preview-hill hill-one"></div><div class="preview-hill hill-two"></div><div class="preview-path"></div><span class="preview-coord">MAP_01</span></div>
+              <div class="map-card-info"><span class="map-index">01 / OPEN WORLD</span><strong data-i18n="map_plains">Равнины</strong><small data-i18n="map_plains_desc">Широкая зелёная площадка с тропинками и редкими деревьями.</small></div><span class="map-radio"></span>
+            </button>
+            <button class="map-card" data-map="test">
+              <div class="map-preview preview-test"><div class="test-house"></div><div class="test-tower"></div><div class="test-ball ball-a"></div><div class="test-ball ball-b"></div><div class="test-water"></div><span class="preview-coord">MAP_02</span></div>
+              <div class="map-card-info"><span class="map-index">02 / TEST FACILITY</span><strong data-i18n="map_test">Полигон</strong><small data-i18n="map_test_desc">Домик, озеро, башня с горкой и три шара для экспериментов.</small></div><span class="map-radio"></span>
+            </button>
+          </div>
+          <div class="dialog-footer"><span class="key-chip">ESC</span><span data-i18n="map_cancel_hint">НАЗАД</span><button id="launch-map" class="action-button action-primary compact"><span data-i18n="launch">Запустить карту</span><span class="action-arrow">↗</span></button></div>
+        </div>
+      </section>
+
+      <section id="settings-screen" class="screen-layer modal-screen" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="settings-dialog panel-shell">
+          <div class="settings-heading"><div><div class="panel-kicker"><span class="eyebrow-line"></span><span data-i18n="system_config">SYSTEM CONFIGURATION</span></div><h2 data-i18n="settings">Настройки</h2></div><button class="icon-button close-settings" aria-label="Back">×</button></div>
+          <div class="settings-layout">
+            <nav class="settings-nav" aria-label="Settings sections">
+              <button class="settings-nav-button active" data-settings-tab="graphics"><span class="nav-mini-icon">▦</span><span data-i18n="graphics">Графика</span><i>01</i></button>
+              <button class="settings-nav-button" data-settings-tab="effects"><span class="nav-mini-icon">✳</span><span data-i18n="effects">Эффекты</span><i>02</i></button>
+              <button class="settings-nav-button" data-settings-tab="audio"><span class="nav-mini-icon">♫</span><span data-i18n="audio">Звук</span><i>03</i></button>
+              <button class="settings-nav-button" data-settings-tab="language"><span class="nav-mini-icon">文</span><span data-i18n="language">Язык</span><i>04</i></button>
+              <div class="settings-nav-note"><span class="status-dot"></span><span data-i18n="saved_locally">ИЗМЕНЕНИЯ СОХРАНЯЮТСЯ ЛОКАЛЬНО</span></div>
+            </nav>
+            <div class="settings-content" id="settings-content"></div>
+          </div>
+          <div class="settings-footer"><span class="key-chip">ESC</span><span data-i18n="close">ЗАКРЫТЬ</span><span class="settings-footer-right" data-i18n="settings_note">Некоторые параметры применяются сразу.</span></div>
+        </div>
+      </section>
+
+      <section id="exit-screen" class="screen-layer exit-screen" aria-hidden="true">
+        <div class="exit-card panel-shell"><div class="exit-orbit">GB</div><span class="panel-kicker" data-i18n="session_end">SESSION END</span><h2 data-i18n="exit_message">Окно браузера<br />нельзя закрыть отсюда.</h2><p data-i18n="exit_hint">Прототип остановлен. Можно закрыть вкладку или вернуться в меню.</p><button id="return-from-exit" class="action-button action-primary"><span data-i18n="return_menu">В меню</span><span class="action-arrow">↗</span></button></div>
+      </section>
+
+      <div id="disconnect-screen" class="disconnect-screen" aria-hidden="true">
+        <div class="glitch-lines"></div><div class="disconnect-content"><div class="disconnect-bars"><i></i><i></i><i></i><i></i><i></i></div><h2>CAM DISCONNECTED</h2><p>LINK LOST · RELOAD PAGE TO RECONNECT</p><span>GBR / FEED_01</span></div>
+      </div>
+
+      <section id="game-hud" class="game-hud" aria-hidden="true">
+        <div class="hud-topline"><div class="hud-map"><span class="hud-map-mark">◆</span><div><small data-i18n="active_world">ACTIVE WORLD</small><strong id="hud-map-name">РАВНИНЫ</strong></div></div><div class="hud-readout"><span id="fps-readout">60 FPS</span><span class="readout-divider"></span><span id="object-readout">0 ENTITIES</span><button id="hud-menu-button" class="hud-esc"><span class="key-chip">ESC</span><span data-i18n="menu">МЕНЮ</span></button></div></div>
+        <div class="crosshair" id="crosshair"><i></i><i></i><i></i><i></i><b></b></div>
+        <div class="hud-bottom-left"><div class="tool-chip"><span class="tool-chip-icon" id="tool-icon">✦</span><span><small data-i18n="equipped">EQUIPPED</small><strong id="weapon-name">Кулаки</strong></span><span class="tool-chip-key">1</span></div><div class="stance-chip" id="stance-chip" data-i18n="stance">БОЕВАЯ СТОЙКА</div></div>
+        <div class="hud-bottom-right"><div class="controls-help"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> <small data-i18n="move">ДВИЖЕНИЕ</small></span><span><kbd>SPACE</kbd> <small data-i18n="jump">ПРЫЖОК</small></span><span><kbd>G</kbd> <small data-i18n="drop">БРОСИТЬ</small></span><span><kbd>E</kbd> <small data-i18n="interact">СЕСТЬ</small></span></div></div>
+      </section>
+
+      <section id="game-menu" class="game-menu" aria-hidden="true">
+        <div class="game-menu-backdrop"></div><div class="game-menu-panel panel-shell">
+          <div class="game-menu-top"><div><div class="panel-kicker"><span class="eyebrow-line"></span><span data-i18n="sandbox_control">SANDBOX CONTROL</span></div><h2 data-i18n="pause">Пауза</h2></div><button id="resume-game" class="resume-button"><span class="resume-dot"></span><span data-i18n="resume">Продолжить</span><kbd>ESC</kbd></button></div>
+          <div class="game-menu-tabs" role="tablist">
+            <button class="game-tab active" data-game-tab="objects" data-i18n="objects">Объекты</button><button class="game-tab" data-game-tab="npcs" data-i18n="npcs">НПС</button><button class="game-tab" data-game-tab="weapons" data-i18n="weapons">Оружие</button><button class="game-tab" data-game-tab="server" data-i18n="server">Сервер</button><button class="game-tab" data-game-tab="settings" data-i18n="settings">Настройки</button>
+          </div>
+          <div id="game-menu-content" class="game-menu-content"></div>
+          <div class="game-menu-footer"><span class="spawn-status"><i></i><span id="spawn-status-text" data-i18n="spawn_tip">ВЫБЕРИ ПРЕДМЕТ · ПКМ ДЛЯ СОЗДАНИЯ</span></span><div class="game-footer-actions"><button id="reload-map" class="subtle-button" data-i18n="reload_map">Перезагрузить карту</button><button id="back-to-menu" class="subtle-button danger-subtle" data-i18n="return_menu">Выйти в меню</button></div></div>
+        </div>
+      </section>
+
+      <div class="prototype-stamp game-prototype">Prototype 0.1</div>
+
+      <div id="mobile-controls" class="mobile-controls" aria-hidden="true">
+        <div class="mobile-look-hint" data-i18n="touch_look">DRAG TO LOOK</div>
+        <div id="move-stick" class="move-stick" aria-label="Move joystick"><div class="stick-ring"><span id="stick-knob" class="stick-knob"></span></div><small data-i18n="move">MOVE</small></div>
+        <div class="mobile-action-cluster">
+          <button id="mobile-spawn" class="mobile-button mobile-spawn" aria-label="Spawn selected item">+</button>
+          <button id="mobile-delete" class="mobile-button mobile-delete" aria-label="Delete focused item">×</button>
+          <button id="mobile-drop" class="mobile-button mobile-drop" aria-label="Drop gear">G</button>
+          <button id="mobile-interact" class="mobile-button mobile-interact" aria-label="Interact">E</button>
+          <button id="mobile-jump" class="mobile-button mobile-jump" aria-label="Jump">↑</button>
+          <button id="mobile-use" class="mobile-button mobile-use" aria-label="Use tool"><span data-i18n="use_tool">USE</span></button>
+        </div>
+        <button id="mobile-menu" class="mobile-button mobile-menu" aria-label="Open menu">Ⅱ</button>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

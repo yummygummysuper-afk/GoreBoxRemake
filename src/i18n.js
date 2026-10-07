@@ -1,0 +1,152 @@
+export const LANGUAGES = [
+  { code: 'ru', native: 'Русский' },
+  { code: 'en-GB', native: 'English (UK)' },
+  { code: 'en-US', native: 'English (US)' },
+  { code: 'uk', native: 'Українська' },
+  { code: 'kk', native: 'Қазақша' },
+  { code: 'pt', native: 'Português' },
+  { code: 'es', native: 'Español' },
+  { code: 'ja', native: '日本語' },
+  { code: 'zh', native: '简体中文' },
+  { code: 'de', native: 'Deutsch' },
+  { code: 'fr', native: 'Français' },
+  { code: 'it', native: 'Italiano' },
+  { code: 'pl', native: 'Polski' },
+  { code: 'tr', native: 'Türkçe' },
+  { code: 'ko', native: '한국어' },
+  { code: 'nl', native: 'Nederlands' },
+  { code: 'sv', native: 'Svenska' },
+  { code: 'cs', native: 'Čeština' },
+  { code: 'ar', native: 'العربية' },
+  { code: 'hi', native: 'हिन्दी' }
+];
+
+const en = {
+  build_tag: 'SANDBOX / BUILD 0.1', offline: 'LOCAL SESSION', menu_space: 'MENU SPACE',
+  hero_eyebrow: 'PHYSICS SANDBOX / PROTOTYPE', hero_title_a: 'MAKE YOUR', hero_title_b: 'OWN RULES.',
+  hero_copy: 'A small experimental playground. Spawn props, meet simple AI characters and turn a quiet test map into your own physics lab.',
+  play: 'Play', settings: 'Settings', exit: 'Exit', menu_hint: 'HOVER THE FIGURE · TRY THE SECRET',
+  hero_right_top: 'PHYSICS', hero_right_bottom: 'PLAYGROUND', made_for: 'A SMALL WORLD TO MESS AROUND IN',
+  map_kicker: 'WORLD SELECT', select_map: 'Select a map', map_subtitle: 'Choose a place for your next test.',
+  map_plains: 'Plains', map_plains_desc: 'A wide green field with trails and scattered trees.',
+  map_test: 'Test Range', map_test_desc: 'A house, a pond, a slide tower and three experiment balls.',
+  map_cancel_hint: 'BACK', launch: 'Launch map', system_config: 'SYSTEM CONFIGURATION', graphics: 'Graphics',
+  effects: 'Effects', audio: 'Audio', language: 'Language', saved_locally: 'CHANGES SAVE LOCALLY', close: 'CLOSE',
+  settings_note: 'Some options apply immediately.', session_end: 'SESSION END',
+  exit_message: 'This browser tab\ncan’t be closed here.', exit_hint: 'The prototype is paused. Close this tab or return to the menu.',
+  return_menu: 'Return to menu', active_world: 'ACTIVE WORLD', menu: 'MENU', equipped: 'EQUIPPED',
+  stance: 'READY STANCE', move: 'MOVE', jump: 'JUMP', drop: 'DROP', interact: 'SIT / INTERACT',
+  touch_look: 'DRAG TO LOOK', use_tool: 'USE', grab: 'GRAB',
+  sandbox_control: 'SANDBOX CONTROL', pause: 'Paused', resume: 'Resume', objects: 'Props', npcs: 'NPCs',
+  weapons: 'Gear', server: 'World', spawn_tip: 'SELECT AN ITEM · RIGHT CLICK TO SPAWN', reload_map: 'Reload map',
+  quality_title: 'Quality presets', quality_hint: 'QUICK SETUP', potato: 'Potato', low: 'Low', medium: 'Medium',
+  high: 'High', ultra: 'Ultra', cinematic: 'Cinematic', resolution: 'Render scale', shadows: 'Shadows',
+  shadow_quality: 'Shadow resolution', fog: 'Atmospheric fog', foliage: 'Foliage density', draw_distance: 'Draw distance',
+  fps_cap: 'Frame limit', tone_mapping: 'Filmic tone mapping', ambient_light: 'Ambient light', sunlight: 'Sunlight strength', impact_fx: 'Hit particles', impact_fx_desc: 'Bright abstract red/orange sparks; no blood or graphic detail.',
+  blur_fx: 'Soften impact flashes', shake: 'Camera shake', ragdoll: 'Ragdoll reactions',
+  fx_level: 'Effect intensity', fx_color: 'Spark colour', music_volume: 'Music volume', sfx_volume: 'Interface & effects',
+  master_volume: 'Master volume', language_title: 'Interface language', language_hint: '20 language options',
+  no_gore_note: 'Impacts use stylized flashes and physics reactions. There is no blood or dismemberment.',
+  off: 'Off', on: 'On', low_opt: 'Low', normal_opt: 'Normal', high_opt: 'High', amber: 'Amber', red: 'Red', cyan: 'Cyan',
+  spawn: 'Spawn', equip: 'Equip', selected: 'Selected', permanent: 'Permanent',
+  choose_object: 'Choose a prop', choose_npc: 'Choose a character', choose_weapon: 'Select or equip gear',
+  server_options: 'World settings', gravity: 'Gravity', npc_activity: 'NPC activity', peaceful: 'Peaceful', reactive: 'Reactive',
+  busy: 'Busy', normal: 'Normal', low_gravity: 'Low', high_gravity: 'High',
+  spawn_table: 'Table', spawn_chair: 'Chair', spawn_wall: 'Wall', prop_table_desc: 'Lightweight physics prop.', prop_chair_desc: 'Sit with E when nearby.', prop_wall_desc: 'A solid panel for building.',
+  npc_dummy: 'Dummy', npc_citizen: 'Citizen', npc_deity: 'White guardian', npc_bully: 'Bully', npc_maniac: 'Wanderer',
+  npc_dummy_desc: 'Stands still and reacts to physics.', npc_citizen_desc: 'Wanders, observes and responds to bumps.',
+  npc_deity_desc: 'Calm, very sturdy and gives a strong push when provoked.', npc_bully_desc: 'Playful chaser; a tag sends you bouncing away.',
+  npc_maniac_desc: 'Sometimes watches, sometimes chases and tags. No graphic scenes.',
+  weapon_fists: 'Fists', weapon_crusher: 'Reality Crusher', weapon_knife: 'Training knife', weapon_bat: 'Foam bat',
+  weapon_zombie_bat: 'Zombie bat', weapon_pistol: 'Pocket blaster', weapon_carbine: 'Carbine-47',
+  weapon_scatter: 'Scatter blaster', weapon_launcher: 'Foam launcher', weapon_water: 'Water blaster',
+  weapon_melee_desc: 'Short-range push', weapon_range_desc: 'Colour-bolt knockback', weapon_tool_desc: 'Grab, spawn and remove props',
+  interact_hint: 'Press E near a chair to sit. Move or jump to stand up.', close_hint: 'Press ESC to resume.',
+  item_selected: 'Selected:', spawn_object_toast: 'Right click in the world to spawn it.', item_spawned: 'Spawned:',
+  dropped: 'Dropped:', removed: 'Removed focused item', no_target: 'Nothing in reach',
+  map_plains_short: 'PLAINS', map_test_short: 'TEST RANGE', click_to_start: 'Click to enable sound',
+  not_gory: 'NON-GRAPHIC PHYSICS SANDBOX'
+};
+
+const ru = {
+  build_tag: 'ПЕСОЧНИЦА / СБОРКА 0.1', offline: 'ЛОКАЛЬНАЯ СЕССИЯ', menu_space: 'МЕНЮ / ПЛОЩАДКА',
+  hero_eyebrow: 'ФИЗИЧЕСКАЯ ПЕСОЧНИЦА / ПРОТОТИП', hero_title_a: 'ТВОИ ПРАВИЛА,', hero_title_b: 'ТВОЙ МИР.',
+  hero_copy: 'Небольшая экспериментальная площадка. Создавай предметы, встречай простых персонажей с ИИ и превращай тихий полигон в свою физическую лабораторию.',
+  play: 'Играть', settings: 'Настройки', exit: 'Выход', menu_hint: 'НАВЕДИ НА ФИГУРУ · ПОПРОБУЙ СЕКРЕТ',
+  hero_right_top: 'ФИЗИКА', hero_right_bottom: 'ПЕСОЧНИЦА', made_for: 'НЕБОЛЬШОЙ МИР ДЛЯ ЭКСПЕРИМЕНТОВ',
+  map_kicker: 'ВЫБОР МИРА', select_map: 'Выбор карты', map_subtitle: 'Выбери площадку для следующего теста.',
+  map_plains: 'Равнины', map_plains_desc: 'Большая зелёная площадка с тропинками и редкими деревьями.',
+  map_test: 'Полигон', map_test_desc: 'Домик, озеро, башня с горкой и три шара для экспериментов.',
+  map_cancel_hint: 'НАЗАД', launch: 'Запустить карту', system_config: 'КОНФИГУРАЦИЯ СИСТЕМЫ', graphics: 'Графика',
+  effects: 'Эффекты', audio: 'Звук', language: 'Язык', saved_locally: 'ИЗМЕНЕНИЯ СОХРАНЯЮТСЯ ЛОКАЛЬНО', close: 'ЗАКРЫТЬ',
+  settings_note: 'Некоторые параметры применяются сразу.', session_end: 'СЕССИЯ ЗАВЕРШЕНА',
+  exit_message: 'Браузер не позволяет\nзакрыть эту вкладку.', exit_hint: 'Прототип остановлен. Закрой вкладку или вернись в меню.',
+  return_menu: 'В меню', active_world: 'АКТИВНЫЙ МИР', menu: 'МЕНЮ', equipped: 'В РУКАХ',
+  stance: 'БОЕВАЯ СТОЙКА', move: 'ДВИЖЕНИЕ', jump: 'ПРЫЖОК', drop: 'БРОСИТЬ', interact: 'СЕСТЬ / ДЕЙСТВИЕ',
+  touch_look: 'ПРОВЕДИ, ЧТОБЫ ОГЛЯНУТЬСЯ', use_tool: 'ДЕЙСТВИЕ', grab: 'ЗАХВАТ',
+  sandbox_control: 'УПРАВЛЕНИЕ ПЕСОЧНИЦЕЙ', pause: 'Пауза', resume: 'Продолжить', objects: 'Объекты', npcs: 'НПС',
+  weapons: 'Снаряжение', server: 'Мир', spawn_tip: 'ВЫБЕРИ ПРЕДМЕТ · ПКМ ДЛЯ СОЗДАНИЯ', reload_map: 'Перезагрузить карту',
+  quality_title: 'Пресеты качества', quality_hint: 'БЫСТРАЯ НАСТРОЙКА', potato: 'Картошка', low: 'Низкий', medium: 'Средний',
+  high: 'Высокий', ultra: 'Ультра', cinematic: 'Кинематографичный', resolution: 'Масштаб рендера', shadows: 'Тени',
+  shadow_quality: 'Разрешение теней', fog: 'Атмосферный туман', foliage: 'Плотность зелени', draw_distance: 'Дальность прорисовки',
+  fps_cap: 'Лимит кадров', tone_mapping: 'Кинематографическая тональность', ambient_light: 'Рассеянный свет', sunlight: 'Сила солнечного света', impact_fx: 'Эффекты столкновений', impact_fx_desc: 'Только условные цветные искры, без графичных деталей.',
+  blur_fx: 'Смягчать вспышки', shake: 'Тряска камеры', ragdoll: 'Реакция рэгдолла', fx_level: 'Интенсивность эффектов',
+  fx_color: 'Цвет искр', music_volume: 'Громкость музыки', sfx_volume: 'Интерфейс и эффекты', master_volume: 'Общая громкость',
+  language_title: 'Язык интерфейса', language_hint: '20 вариантов языка',
+  no_gore_note: 'Столкновения показаны условными вспышками и физическими реакциями. Крови и расчленения нет.',
+  off: 'Выкл.', on: 'Вкл.', low_opt: 'Низкое', normal_opt: 'Обычное', high_opt: 'Высокое', amber: 'Янтарный', red: 'Красный', cyan: 'Голубой',
+  spawn: 'Создать', equip: 'Выдать', selected: 'Выбрано', permanent: 'Постоянное',
+  choose_object: 'Выбери предмет', choose_npc: 'Выбери персонажа', choose_weapon: 'Выбери или возьми снаряжение',
+  server_options: 'Параметры мира', gravity: 'Гравитация', npc_activity: 'Активность НПС', peaceful: 'Спокойная', reactive: 'Реактивная',
+  busy: 'Активная', normal: 'Обычная', low_gravity: 'Низкая', high_gravity: 'Высокая',
+  spawn_table: 'Стол', spawn_chair: 'Стул', spawn_wall: 'Стена', prop_table_desc: 'Лёгкий физический объект.', prop_chair_desc: 'Нажми E рядом, чтобы сесть.', prop_wall_desc: 'Твёрдая панель для строительства.',
+  npc_dummy: 'Кукла', npc_citizen: 'Гражданин', npc_deity: 'Белый страж', npc_bully: 'Задира', npc_maniac: 'Странник',
+  npc_dummy_desc: 'Стоит на месте и реагирует на физику.', npc_citizen_desc: 'Бродит, осматривается и реагирует на толчки.',
+  npc_deity_desc: 'Спокойный, очень крепкий; при провокации сильно отталкивает.', npc_bully_desc: 'Задорный преследователь; при касании отбрасывает игрока.',
+  npc_maniac_desc: 'Иногда наблюдает, иногда гонится и касается цели. Без графичных сцен.',
+  weapon_fists: 'Кулаки', weapon_crusher: 'Reality Crusher', weapon_knife: 'Тренировочный нож', weapon_bat: 'Мягкая бита',
+  weapon_zombie_bat: 'Зомби-бита', weapon_pistol: 'Карманный бластер', weapon_carbine: 'Карабин-47',
+  weapon_scatter: 'Дисперсионный бластер', weapon_launcher: 'Пенная ракетница', weapon_water: 'Водяной бластер',
+  weapon_melee_desc: 'Короткий толчок', weapon_range_desc: 'Цветной импульс отбрасывания', weapon_tool_desc: 'Брать, создавать и удалять предметы',
+  interact_hint: 'Нажми E рядом со стулом, чтобы сесть. Движение или прыжок помогут встать.', close_hint: 'Нажми ESC, чтобы продолжить.',
+  item_selected: 'Выбрано:', spawn_object_toast: 'Щёлкни ПКМ в мире, чтобы создать предмет.', item_spawned: 'Создано:',
+  dropped: 'Выброшено:', removed: 'Предмет удалён', no_target: 'Нет цели рядом',
+  map_plains_short: 'РАВНИНЫ', map_test_short: 'ПОЛИГОН', click_to_start: 'Нажми, чтобы включить звук',
+  not_gory: 'НЕГРАФИЧНАЯ ФИЗИЧЕСКАЯ ПЕСОЧНИЦА'
+};
+
+// Compact translations for the primary menu and navigation. Untranslated specialist
+// prototype labels safely fall back to English so every screen remains legible.
+const common = {
+  'en-GB': { play: 'Play', settings: 'Settings', exit: 'Exit', select_map: 'Select a map', launch: 'Launch map', graphics: 'Graphics', effects: 'Effects', audio: 'Audio', language: 'Language', objects: 'Props', npcs: 'NPCs', weapons: 'Gear', server: 'World', resume: 'Resume', return_menu: 'Return to menu', reload_map: 'Reload map' },
+  'en-US': { play: 'Play', settings: 'Settings', exit: 'Exit', select_map: 'Choose a map', launch: 'Start map', graphics: 'Graphics', effects: 'Effects', audio: 'Audio', language: 'Language', objects: 'Props', npcs: 'NPCs', weapons: 'Gear', server: 'World', resume: 'Resume', return_menu: 'Return to menu', reload_map: 'Reload map' },
+  uk: { play: 'Грати', settings: 'Налаштування', exit: 'Вихід', select_map: 'Вибір мапи', launch: 'Запустити мапу', graphics: 'Графіка', effects: 'Ефекти', audio: 'Звук', language: 'Мова', objects: 'Об’єкти', npcs: 'NPC', weapons: 'Спорядження', server: 'Світ', resume: 'Продовжити', return_menu: 'У меню', reload_map: 'Перезавантажити мапу', map_plains: 'Рівнини', map_test: 'Полігон' },
+  kk: { play: 'Ойнау', settings: 'Баптаулар', exit: 'Шығу', select_map: 'Картаны таңдау', launch: 'Картаны іске қосу', graphics: 'Графика', effects: 'Әсерлер', audio: 'Дыбыс', language: 'Тіл', objects: 'Заттар', npcs: 'NPC', weapons: 'Жабдық', server: 'Әлем', resume: 'Жалғастыру', return_menu: 'Мәзірге қайту', reload_map: 'Картаны қайта жүктеу', map_plains: 'Жазықтар', map_test: 'Полигон' },
+  pt: { play: 'Jogar', settings: 'Configurações', exit: 'Sair', select_map: 'Escolher mapa', launch: 'Iniciar mapa', graphics: 'Gráficos', effects: 'Efeitos', audio: 'Áudio', language: 'Idioma', objects: 'Objetos', npcs: 'NPCs', weapons: 'Equipamento', server: 'Mundo', resume: 'Continuar', return_menu: 'Voltar ao menu', reload_map: 'Reiniciar mapa', map_plains: 'Planícies', map_test: 'Campo de testes' },
+  es: { play: 'Jugar', settings: 'Ajustes', exit: 'Salir', select_map: 'Elegir mapa', launch: 'Iniciar mapa', graphics: 'Gráficos', effects: 'Efectos', audio: 'Audio', language: 'Idioma', objects: 'Objetos', npcs: 'PNJ', weapons: 'Equipo', server: 'Mundo', resume: 'Continuar', return_menu: 'Volver al menú', reload_map: 'Reiniciar mapa', map_plains: 'Llanuras', map_test: 'Campo de pruebas' },
+  ja: { play: 'プレイ', settings: '設定', exit: '終了', select_map: 'マップを選択', launch: 'マップ開始', graphics: 'グラフィック', effects: 'エフェクト', audio: 'オーディオ', language: '言語', objects: 'オブジェクト', npcs: 'NPC', weapons: '装備', server: 'ワールド', resume: '再開', return_menu: 'メニューへ戻る', reload_map: 'マップを再読み込み', map_plains: '平原', map_test: 'テスト場' },
+  zh: { play: '开始游戏', settings: '设置', exit: '退出', select_map: '选择地图', launch: '进入地图', graphics: '画面', effects: '效果', audio: '音频', language: '语言', objects: '物件', npcs: '角色', weapons: '装备', server: '世界', resume: '继续', return_menu: '返回菜单', reload_map: '重载地图', map_plains: '平原', map_test: '测试场' },
+  de: { play: 'Spielen', settings: 'Einstellungen', exit: 'Beenden', select_map: 'Karte wählen', launch: 'Karte starten', graphics: 'Grafik', effects: 'Effekte', audio: 'Audio', language: 'Sprache', objects: 'Objekte', npcs: 'NPCs', weapons: 'Ausrüstung', server: 'Welt', resume: 'Fortsetzen', return_menu: 'Zum Menü', reload_map: 'Karte neu laden', map_plains: 'Ebenen', map_test: 'Testgelände' },
+  fr: { play: 'Jouer', settings: 'Options', exit: 'Quitter', select_map: 'Choisir une carte', launch: 'Lancer la carte', graphics: 'Graphismes', effects: 'Effets', audio: 'Audio', language: 'Langue', objects: 'Objets', npcs: 'PNJ', weapons: 'Équipement', server: 'Monde', resume: 'Reprendre', return_menu: 'Retour au menu', reload_map: 'Recharger la carte', map_plains: 'Plaines', map_test: 'Terrain d’essai' },
+  it: { play: 'Gioca', settings: 'Impostazioni', exit: 'Esci', select_map: 'Scegli mappa', launch: 'Avvia mappa', graphics: 'Grafica', effects: 'Effetti', audio: 'Audio', language: 'Lingua', objects: 'Oggetti', npcs: 'PNG', weapons: 'Equipaggiamento', server: 'Mondo', resume: 'Riprendi', return_menu: 'Torna al menu', reload_map: 'Ricarica mappa', map_plains: 'Pianure', map_test: 'Campo prova' },
+  pl: { play: 'Graj', settings: 'Ustawienia', exit: 'Wyjdź', select_map: 'Wybierz mapę', launch: 'Uruchom mapę', graphics: 'Grafika', effects: 'Efekty', audio: 'Dźwięk', language: 'Język', objects: 'Obiekty', npcs: 'NPC', weapons: 'Wyposażenie', server: 'Świat', resume: 'Wznów', return_menu: 'Wróć do menu', reload_map: 'Wczytaj mapę ponownie', map_plains: 'Równiny', map_test: 'Poligon' },
+  tr: { play: 'Oyna', settings: 'Ayarlar', exit: 'Çıkış', select_map: 'Harita seç', launch: 'Haritayı başlat', graphics: 'Grafikler', effects: 'Efektler', audio: 'Ses', language: 'Dil', objects: 'Nesneler', npcs: 'NPC', weapons: 'Ekipman', server: 'Dünya', resume: 'Devam et', return_menu: 'Menüye dön', reload_map: 'Haritayı yenile', map_plains: 'Ovalar', map_test: 'Test alanı' },
+  ko: { play: '플레이', settings: '설정', exit: '나가기', select_map: '맵 선택', launch: '맵 시작', graphics: '그래픽', effects: '효과', audio: '오디오', language: '언어', objects: '오브젝트', npcs: 'NPC', weapons: '장비', server: '월드', resume: '계속하기', return_menu: '메뉴로 돌아가기', reload_map: '맵 다시 불러오기', map_plains: '평원', map_test: '테스트 구역' },
+  nl: { play: 'Spelen', settings: 'Instellingen', exit: 'Afsluiten', select_map: 'Kies een kaart', launch: 'Kaart starten', graphics: 'Beeld', effects: 'Effecten', audio: 'Audio', language: 'Taal', objects: 'Objecten', npcs: 'NPC’s', weapons: 'Uitrusting', server: 'Wereld', resume: 'Hervatten', return_menu: 'Terug naar menu', reload_map: 'Kaart herladen', map_plains: 'Vlaktes', map_test: 'Testterrein' },
+  sv: { play: 'Spela', settings: 'Inställningar', exit: 'Avsluta', select_map: 'Välj karta', launch: 'Starta karta', graphics: 'Grafik', effects: 'Effekter', audio: 'Ljud', language: 'Språk', objects: 'Föremål', npcs: 'NPC:er', weapons: 'Utrustning', server: 'Värld', resume: 'Fortsätt', return_menu: 'Tillbaka till menyn', reload_map: 'Ladda om kartan', map_plains: 'Slätterna', map_test: 'Testområde' },
+  cs: { play: 'Hrát', settings: 'Nastavení', exit: 'Ukončit', select_map: 'Vybrat mapu', launch: 'Spustit mapu', graphics: 'Grafika', effects: 'Efekty', audio: 'Zvuk', language: 'Jazyk', objects: 'Objekty', npcs: 'NPC', weapons: 'Výbava', server: 'Svět', resume: 'Pokračovat', return_menu: 'Zpět do menu', reload_map: 'Znovu načíst mapu', map_plains: 'Pláně', map_test: 'Testovací areál' },
+  ar: { play: 'العب', settings: 'الإعدادات', exit: 'خروج', select_map: 'اختر خريطة', launch: 'ابدأ الخريطة', graphics: 'الرسومات', effects: 'المؤثرات', audio: 'الصوت', language: 'اللغة', objects: 'العناصر', npcs: 'الشخصيات', weapons: 'المعدات', server: 'العالم', resume: 'متابعة', return_menu: 'العودة إلى القائمة', reload_map: 'إعادة تحميل الخريطة', map_plains: 'السهول', map_test: 'ساحة الاختبار' },
+  hi: { play: 'खेलें', settings: 'सेटिंग्स', exit: 'बाहर जाएँ', select_map: 'मैप चुनें', launch: 'मैप शुरू करें', graphics: 'ग्राफ़िक्स', effects: 'प्रभाव', audio: 'ऑडियो', language: 'भाषा', objects: 'वस्तुएँ', npcs: 'NPC', weapons: 'उपकरण', server: 'दुनिया', resume: 'जारी रखें', return_menu: 'मेनू पर लौटें', reload_map: 'मैप फिर से लोड करें', map_plains: 'मैदान', map_test: 'परीक्षण क्षेत्र' }
+};
+
+const dictionaries = { ru, 'en-GB': en, 'en-US': en, ...common };
+export function translate(code, key) {
+  const dict = dictionaries[code] || en;
+  return dict[key] ?? en[key] ?? key;
+}
+export function applyTranslations(code, root = document) {
+  root.querySelectorAll('[data-i18n]').forEach((node) => {
+    node.textContent = translate(code, node.dataset.i18n);
+  });
+  document.documentElement.lang = code;
+}
